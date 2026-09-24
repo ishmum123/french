@@ -59,9 +59,15 @@ in `README.md` and in `engine/tools/packbuilder/langs/fr.py`.
   `tools/REPORT_passages.md` for the full manual notes and per-passage
   coverage/link numbers).
 - The only out-of-pack lemmas across all 60 passages are salade (x2) and
-  cuillère (x1) in the fruit-salad recipe (p0025, unavoidable), and la
+  cuillère (x1) in the fruit-salad recipe (p0025, unavoidable), la
   ferme "farm" in p0044 and p0054 (the pack's ferme is the A2 adjective
-  "firm", so those tokens are unlinked and declared).
+  "firm"), and le scientifique "scientist" in p0059 (the pack has only the
+  adjective), so those tokens are unlinked and declared.
+- Tap glosses are per word, not per span: "Chère Emma" shows the full
+  cher entry "expensive, costly; dear", and the adverb ensemble ("nous
+  rentrons ensemble") glosses under the noun headword "l'ensemble … (m)"
+  with "together" as first sense. A per-span sense override would need an
+  engine change (live check 2026-09-24).
 - The passage linker rules for French (declared names never recased or
   linked; a capitalised word that is not a declared name reads as the
   common word; a noun reading of a finite verb in predicate position is
