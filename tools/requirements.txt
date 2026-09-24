@@ -1,0 +1,6 @@
+# Shared builder deps (spacy, wordfreq, simplemma), pinned in vocab-engine:
+-r ../engine/tools/packbuilder/requirements.txt
+# spaCy French pipeline (model licence LGPL-LR; build time only). The large model is used: the small
+# one mis-tags second-person dialogue (see engine/tools/packbuilder/langs/fr.py). Also installable with:
+# python -m spacy download fr_core_news_lg
+fr_core_news_lg @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_lg-3.8.0/fr_core_news_lg-3.8.0-py3-none-any.whl

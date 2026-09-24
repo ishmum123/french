@@ -1,0 +1,29 @@
+# A1 core list: everyday words forced into A1 (the closed sets - days, months,
+# seasons, numbers, colours, nationalities, greetings, et/ou/à/de/en - are in
+# engine/tools/packbuilder/langs/fr.py). One lemma per token; '#' starts a comment.
+[NOUN]
+monsieur madame homme femme enfant garçon fille père mère frère sœur ami famille
+maison appartement chambre cuisine porte fenêtre table chaise lit clé
+école classe professeur élève livre papier travail
+ville rue voiture bus train avion gare
+magasin marché restaurant café hôtel argent
+eau pain lait vin viande poisson fruit pomme fromage œuf thé sucre
+déjeuner dîner jour nuit matin soir semaine mois an année heure
+chien chat fleur
+mer plage soleil pluie ciel
+tête main pied œil bouche cœur
+médecin hôpital téléphone musique film
+question réponse nom mot langue pays monde chaussure chose
+[VERB]
+être avoir aller venir faire dire pouvoir vouloir devoir savoir connaître voir
+regarder écouter entendre parler manger boire dormir lire écrire aimer préférer
+habiter travailler jouer acheter payer prendre donner mettre ouvrir fermer
+partir arriver sortir entrer rester attendre chercher trouver comprendre apprendre
+commencer finir aider demander répondre penser croire marcher
+appeler
+[ADJ]
+grand petit bon mauvais beau nouveau vieux jeune chaud froid triste
+heureux fatigué malade facile difficile cher long premier dernier
+[ADV]
+très bien mal beaucoup peu aujourd'hui demain hier maintenant toujours jamais souvent
+ici là aussi encore déjà peut-être trop
