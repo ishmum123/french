@@ -59,7 +59,7 @@ Levels: {'A1': 600, 'A2': 700, 'B1': 700}. POS: {'noun': 984, 'verb': 502, 'adj'
 ## Top 100 by rank (lemma [pos] gloss)
 
 ```
-   1 de [prep] of, from
+   1 de [prep] of, from; some, any (partitive)
    2 le [art] the (le, la, l', les)
    3 être [verb] to be
    4 un [art] a, an (un, une)

@@ -53,6 +53,31 @@ in `README.md` and in `engine/tools/packbuilder/langs/fr.py`.
 - A1/A2 glosses were hand-reviewed in QA round 2 (overrides in
   `tools/gloss_overrides.json`). B1 glosses are ranker output only.
 
+## Reading passages
+- A native-speaker pass over the 60 texts has not been done yet; only an
+  automated QA pass plus one round of manual/external QA fixes (see
+  `tools/REPORT_passages.md` for the full manual notes and per-passage
+  coverage/link numbers).
+- The only out-of-pack lemmas across all 60 passages are salade (x2) and
+  cuillère (x1) in the fruit-salad recipe (p0025, unavoidable), and la
+  ferme "farm" in p0044 and p0054 (the pack's ferme is the A2 adjective
+  "firm", so those tokens are unlinked and declared).
+- The passage linker rules for French (declared names never recased or
+  linked; a capitalised word that is not a declared name reads as the
+  common word; a noun reading of a finite verb in predicate position is
+  read as the verb; été after en/l' is the season; a multiword expression
+  spans all its parts; an unresolved form links its pack base; a noun with
+  no pack entry does not fall back to a same-spelling word of another POS
+  when English names the noun's own sense) live in vocab-engine's
+  `packbuilder/langs/fr.py` passage hooks, not in this repo. None of them
+  changes the word or sentence build (see `tools/REPORT_passages.md`).
+- 15 gloss senses were added or corrected in `tools/gloss_overrides.json`
+  while writing the passages: cher (dear), ensemble (together), gagner
+  (earn), arriver à (manage to), s'occuper de (look after), le public
+  (audience), feuille (sheet), marcher (work), compris (included), tenir
+  (run / y tenir), direction (management), tout droit (straight on),
+  maître (owner), amie, de (partitive).
+
 ## Verification
 - Browser verification of `index.html` (every tab, fr-FR TTS voice, typing
   with accents at each level, gap items, audio) is still to do.

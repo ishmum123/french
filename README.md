@@ -3,8 +3,10 @@
 Static data pack for a language-agnostic vocab trainer (`key: "fr"`). 2000
 words spanning A1-B1, each with a short English gloss, plus example
 sentences with translations and, where the licence permits, native audio.
+The Read tab adds 60 short reading passages with comprehension questions
+(see "Reading passages" below).
 
-**Live:** https://ishmum123.github.io/french/ (once GitHub Pages is enabled)
+**Live:** https://ishmum123.github.io/french/
 
 This repo holds the French data pack and the French data files its build
 reads, plus [`vocab-engine`](https://github.com/ishmum123/vocab-engine) as a
@@ -37,6 +39,33 @@ also scans glosses: a matching sense never leads an A1/A2 gloss
 (`lower_level_gloss_re`) — tuer, mourir, mort, meurtre, arme, sexe and
 sexuel are placed at B1 this way; the check fails on any match that
 remains at A1/A2.
+
+## Reading passages (Read tab)
+
+`pack/passages.json` holds 60 short reading texts, 20 each at A1, A2 and B1,
+with comprehension questions each. The format is in the engine's
+`docs/PACK_SCHEMA.md`. The texts were written for this pack (`"src": "gen"`)
+and their source is `tools/passages_src.json`. Rebuild from that source with:
+
+```
+PYTHONPATH=engine/tools python3 -m packbuilder passages .    # --check: report only
+python3 engine/tools/jsonify_pack.py pack                    # passages go into sentences.js
+```
+
+The builder links word ids the same way it does for the example sentences.
+It enforces in-pack coverage of at least 95% at A1 and A2, and at least 93%
+at B1. It also enforces a level budget: an A1 passage may use at most 3 A2
+words (and no B1 words) and an A2 passage at most 3 B1 words. Per-passage
+numbers and the QA notes are in `tools/REPORT_passages.md`.
+
+A level's 20 passages unlock once the learner has learned 70% of that
+level's words. Tapping any word in a passage shows its gloss, including
+inflected forms, via per-sentence token spans linked to word ids.
+Comprehension questions feed missed words back into the review queue as
+weak words.
+
+The passages and questions are machine-written by Claude, checked by an
+automated QA pass; they have not had a native-speaker review.
 
 ## Layout
 
