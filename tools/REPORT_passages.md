@@ -6,73 +6,85 @@ punctuation not counted). Level budget (passage + questions + options): A1 may u
 <=3 A2 lemmas and no B1; A2 may use <=3 B1 lemmas; B1 may use anything in the pack.
 Linked = tokens whose word id is also in the sentence's `words` (the stricter share:
 a pack lemma can go unlinked when the tagger reads it with another POS).
+words = the builder's word count (the band rule); ws_words = whitespace-separated
+tokens of the passage text, the count the app shows (report only).
 
-- **A1**: 20 passages; words/passage 64-90 (median 82.0); coverage min 1.000, median 1.000 (rule >= 0.95); linked min 1.000; questions mc 50, tf 47
-- **A2**: 20 passages; words/passage 96-120 (median 112.5); coverage min 0.970, median 1.000 (rule >= 0.95); linked min 0.970; questions mc 58, tf 42
-- **B1**: 20 passages; words/passage 135-150 (median 146.0); coverage min 0.992, median 1.000 (rule >= 0.93); linked min 0.992; questions mc 58, tf 42
+- **A1**: 20 passages; words/passage 64-90 (median 82.0); ws_words 65-109; coverage min 1.000, median 1.000 (rule >= 0.95); linked min 1.000; questions mc 50, tf 47
+- **A2**: 20 passages; words/passage 96-120 (median 112.5); ws_words 98-132; coverage min 0.970, median 1.000 (rule >= 0.95); linked min 0.970; questions mc 58, tf 42
+- **B1**: 20 passages; words/passage 135-150 (median 146.0); ws_words 135-159; coverage min 0.992, median 1.000 (rule >= 0.93); linked min 0.992; questions mc 58, tf 42
 
-| id | lv | title | words | coverage | linked | out-of-pack lemmas (reason) | higher-level lemmas |
-|---|---|---|---|---|---|---|---|
-| p0001 | A1 | La journée de Paul | 86 | 1.000 | 1.000 | - | - |
-| p0002 | A1 | La famille de Léa | 88 | 1.000 | 1.000 | - | A2: grand-mère |
-| p0003 | A1 | Au marché | 83 | 1.000 | 1.000 | - | - |
-| p0004 | A1 | Un message pour Sophie | 69 | 1.000 | 1.000 | - | A2: cinéma, libre |
-| p0005 | A1 | Quel temps fait-il ? | 64 | 1.000 | 1.000 | - | A2: glace, normal |
-| p0006 | A1 | Dans le train | 85 | 1.000 | 1.000 | - | A2: journal, vide |
-| p0007 | A1 | Ma nouvelle école | 78 | 1.000 | 1.000 | - | A2: gentil |
-| p0008 | A1 | Au restaurant | 72 | 1.000 | 1.000 | - | A2: patron, verre |
-| p0009 | A1 | Mon chien Max | 82 | 1.000 | 1.000 | - | A2: courir, gentil |
-| p0010 | A1 | Le magasin est fermé | 70 | 1.000 | 1.000 | - | A2: client, ouvert |
-| p0011 | A1 | Une fête pour Lucie | 75 | 1.000 | 1.000 | - | A2: anniversaire, âge |
-| p0012 | A1 | La maison de Julien | 90 | 1.000 | 1.000 | - | A2: arbre, bas, campagne |
-| p0013 | A1 | Un dimanche à la plage | 78 | 1.000 | 1.000 | - | - |
-| p0014 | A1 | Mon premier jour de travail | 82 | 1.000 | 1.000 | - | A2: client, se lever, sympa |
-| p0015 | A1 | Où est la gare ? | 66 | 1.000 | 1.000 | - | A2: gauche, jusque, puis |
-| p0016 | A1 | Le chat de Madame Garnier | 82 | 1.000 | 1.000 | - | A2: dehors, oiseau, partout |
-| p0017 | A1 | Une lettre de Montréal | 81 | 1.000 | 1.000 | - | A2: court, sympa |
-| p0018 | A1 | Au téléphone avec maman | 82 | 1.000 | 1.000 | - | A2: chéri, content, retard |
-| p0019 | A1 | Le samedi de Chloé | 85 | 1.000 | 1.000 | - | A2: rire, se lever, tôt |
-| p0020 | A1 | J'apprends le français | 83 | 1.000 | 1.000 | - | - |
-| p0021 | A2 | Vacances en Bretagne | 110 | 1.000 | 1.000 | - | B1: louer, pleuvoir, port |
-| p0022 | A2 | Le nouveau travail de Karim | 111 | 1.000 | 1.000 | - | B1: collègue |
-| p0023 | A2 | Chez le médecin | 112 | 1.000 | 1.000 | - | B1: examiner, médicament, repas |
-| p0024 | A2 | Appartement à louer | 102 | 1.000 | 1.000 | - | B1: douche, louer, étage |
-| p0025 | A2 | Une salade de fruits | 96 | 0.970 | 0.970 | cuillère x1 (recipe utensil (spoon), unavoidable), salade x2 (recipe dish (salad), unavoidable in a fruit-salad recipe) | B1: doucement, laver, plat |
-| p0026 | A2 | Une journée difficile | 113 | 1.000 | 1.000 | - | B1: heureusement, pleuvoir, sonner |
-| p0027 | A2 | Un nouveau parc en ville | 118 | 1.000 | 1.000 | - | B1: lac, ouverture, usine |
-| p0028 | A2 | Une fête surprise | 117 | 1.000 | 1.000 | - | B1: invité, jardin, surprise |
-| p0029 | A2 | Le programme de demain | 115 | 1.000 | 1.000 | - | B1: après-midi, rivière |
-| p0030 | A2 | Quel film on va voir ? | 115 | 1.000 | 1.000 | - | - |
-| p0031 | A2 | Le match de samedi | 110 | 1.000 | 1.000 | - | B1: après-midi, football, stade |
-| p0032 | A2 | À l'université | 120 | 1.000 | 1.000 | - | B1: bibliothèque, week-end |
-| p0033 | A2 | Information en gare | 108 | 1.000 | 1.000 | - | B1: technique |
-| p0034 | A2 | Le marché du samedi | 119 | 1.000 | 1.000 | - | B1: courses, dépenser, heureusement |
-| p0035 | A2 | Mon quartier | 120 | 1.000 | 1.000 | - | B1: jardin, étage |
-| p0036 | A2 | Une chute à vélo | 116 | 1.000 | 1.000 | - | B1: pleuvoir, vélo |
-| p0037 | A2 | Cours de français pour adultes | 104 | 1.000 | 1.000 | - | B1: adulte, améliorer, euro |
-| p0038 | A2 | Une lettre de Berlin | 112 | 1.000 | 1.000 | - | B1: musée, vélo, week-end |
-| p0039 | A2 | La fête du village | 115 | 1.000 | 1.000 | - | B1: repas, week-end, âgé |
-| p0040 | A2 | Un problème avec mon téléphone | 105 | 1.000 | 1.000 | - | B1: réparer, écran, éteindre |
-| p0041 | B1 | Une décision difficile | 144 | 1.000 | 1.000 | - | - |
-| p0042 | B1 | Une lettre à l'hôtel | 136 | 1.000 | 1.000 | - | - |
-| p0043 | B1 | La vieille usine va fermer | 139 | 1.000 | 1.000 | - | - |
-| p0044 | B1 | Quand mon grand-père était enfant | 150 | 0.994 | 0.994 | ferme x1 (la ferme (farm): not in the pack; the pack's ferme is the A2 adjective 'firm') | - |
-| p0045 | B1 | Comment mieux dormir ? | 144 | 1.000 | 1.000 | - | - |
-| p0046 | B1 | Un samedi à la bibliothèque | 150 | 1.000 | 1.000 | - | - |
-| p0047 | B1 | Moins de voitures en ville | 141 | 1.000 | 1.000 | - | - |
-| p0048 | B1 | Mon premier voyage seul | 147 | 1.000 | 1.000 | - | - |
-| p0049 | B1 | Les jeunes et le téléphone | 149 | 1.000 | 1.000 | - | - |
-| p0050 | B1 | Du bruit la nuit | 143 | 1.000 | 1.000 | - | - |
-| p0051 | B1 | Changer de métier à quarante ans | 150 | 1.000 | 1.000 | - | - |
-| p0052 | B1 | Un jardin sur le toit | 148 | 1.000 | 1.000 | - | - |
-| p0053 | B1 | Le concours de cuisine | 150 | 1.000 | 1.000 | - | - |
-| p0054 | B1 | Le mariage de ma cousine | 135 | 0.992 | 0.992 | ferme x1 (la ferme (farmhouse): not in the pack; the pack's ferme is the A2 adjective 'firm') | - |
-| p0055 | B1 | Le musée ouvre le soir | 146 | 1.000 | 1.000 | - | - |
-| p0056 | B1 | Travailler à la maison | 146 | 1.000 | 1.000 | - | - |
-| p0057 | B1 | Le vélo volé | 150 | 1.000 | 1.000 | - | - |
-| p0058 | B1 | Notre avis sur « Chez Marcel » | 138 | 1.000 | 1.000 | - | - |
-| p0059 | B1 | Apprendre une langue à l'âge adulte | 141 | 0.993 | 0.993 | scientifique x1 (le scientifique (scientist): the pack has only the adjective scientifique 'scientific') | - |
-| p0060 | B1 | Dans dix ans | 146 | 1.000 | 1.000 | - | - |
+| id | lv | title | words | ws_words | coverage | linked | out-of-pack lemmas (reason) | higher-level lemmas |
+|---|---|---|---|---|---|---|---|---|
+| p0001 | A1 | La journée de Paul | 86 | 86 | 1.000 | 1.000 | - | - |
+| p0002 | A1 | La famille de Léa | 88 | 86 | 1.000 | 1.000 | - | A2: grand-mère |
+| p0003 | A1 | Au marché | 83 | 96 | 1.000 | 1.000 | - | - |
+| p0004 | A1 | Un message pour Sophie | 69 | 71 | 1.000 | 1.000 | - | A2: cinéma, libre |
+| p0005 | A1 | Quel temps fait-il ? | 64 | 65 | 1.000 | 1.000 | - | A2: glace, normal |
+| p0006 | A1 | Dans le train | 85 | 89 | 1.000 | 1.000 | - | A2: journal, vide |
+| p0007 | A1 | Ma nouvelle école | 78 | 77 | 1.000 | 1.000 | - | A2: gentil |
+| p0008 | A1 | Au restaurant | 72 | 83 | 1.000 | 1.000 | - | A2: patron, verre |
+| p0009 | A1 | Mon chien Max | 82 | 83 | 1.000 | 1.000 | - | A2: courir, gentil |
+| p0010 | A1 | Le magasin est fermé | 70 | 74 | 1.000 | 1.000 | - | A2: client, ouvert |
+| p0011 | A1 | Une fête pour Lucie | 75 | 77 | 1.000 | 1.000 | - | A2: anniversaire, âge |
+| p0012 | A1 | La maison de Julien | 90 | 90 | 1.000 | 1.000 | - | A2: arbre, bas, campagne |
+| p0013 | A1 | Un dimanche à la plage | 78 | 78 | 1.000 | 1.000 | - | - |
+| p0014 | A1 | Mon premier jour de travail | 82 | 83 | 1.000 | 1.000 | - | A2: client, se lever, sympa |
+| p0015 | A1 | Où est la gare ? | 66 | 89 | 1.000 | 1.000 | - | A2: gauche, jusque, puis |
+| p0016 | A1 | Le chat de Madame Garnier | 82 | 84 | 1.000 | 1.000 | - | A2: dehors, oiseau, partout |
+| p0017 | A1 | Une lettre de Montréal | 81 | 84 | 1.000 | 1.000 | - | A2: court, sympa |
+| p0018 | A1 | Au téléphone avec maman | 82 | 109 | 1.000 | 1.000 | - | A2: chéri, content, retard |
+| p0019 | A1 | Le samedi de Chloé | 85 | 85 | 1.000 | 1.000 | - | A2: rire, se lever, tôt |
+| p0020 | A1 | J'apprends le français | 83 | 83 | 1.000 | 1.000 | - | - |
+| p0021 | A2 | Vacances en Bretagne | 110 | 110 | 1.000 | 1.000 | - | B1: louer, pleuvoir, port |
+| p0022 | A2 | Le nouveau travail de Karim | 111 | 111 | 1.000 | 1.000 | - | B1: collègue |
+| p0023 | A2 | Chez le médecin | 112 | 127 | 1.000 | 1.000 | - | B1: examiner, médicament, repas |
+| p0024 | A2 | Appartement à louer | 102 | 104 | 1.000 | 1.000 | - | B1: douche, louer, étage |
+| p0025 | A2 | Une salade de fruits | 96 | 98 | 0.970 | 0.970 | cuillère x1 (recipe utensil (spoon), unavoidable), salade x2 (recipe dish (salad), unavoidable in a fruit-salad recipe) | B1: doucement, laver, plat |
+| p0026 | A2 | Une journée difficile | 113 | 113 | 1.000 | 1.000 | - | B1: heureusement, pleuvoir, sonner |
+| p0027 | A2 | Un nouveau parc en ville | 118 | 121 | 1.000 | 1.000 | - | B1: lac, ouverture, usine |
+| p0028 | A2 | Une fête surprise | 117 | 122 | 1.000 | 1.000 | - | B1: invité, jardin, surprise |
+| p0029 | A2 | Le programme de demain | 115 | 115 | 1.000 | 1.000 | - | B1: après-midi, rivière |
+| p0030 | A2 | Quel film on va voir ? | 115 | 132 | 1.000 | 1.000 | - | - |
+| p0031 | A2 | Le match de samedi | 110 | 109 | 1.000 | 1.000 | - | B1: après-midi, football, stade |
+| p0032 | A2 | À l'université | 120 | 122 | 1.000 | 1.000 | - | B1: bibliothèque, week-end |
+| p0033 | A2 | Information en gare | 108 | 110 | 1.000 | 1.000 | - | B1: technique |
+| p0034 | A2 | Le marché du samedi | 119 | 120 | 1.000 | 1.000 | - | B1: courses, dépenser, heureusement |
+| p0035 | A2 | Mon quartier | 120 | 122 | 1.000 | 1.000 | - | B1: jardin, étage |
+| p0036 | A2 | Une chute à vélo | 116 | 119 | 1.000 | 1.000 | - | B1: pleuvoir, vélo |
+| p0037 | A2 | Cours de français pour adultes | 104 | 106 | 1.000 | 1.000 | - | B1: adulte, améliorer, euro |
+| p0038 | A2 | Une lettre de Berlin | 112 | 114 | 1.000 | 1.000 | - | B1: musée, vélo, week-end |
+| p0039 | A2 | La fête du village | 115 | 115 | 1.000 | 1.000 | - | B1: repas, week-end, âgé |
+| p0040 | A2 | Un problème avec mon téléphone | 105 | 106 | 1.000 | 1.000 | - | B1: réparer, écran, éteindre |
+| p0041 | B1 | Une décision difficile | 144 | 150 | 1.000 | 1.000 | - | - |
+| p0042 | B1 | Une lettre à l'hôtel | 136 | 140 | 1.000 | 1.000 | - | - |
+| p0043 | B1 | La vieille usine va fermer | 139 | 141 | 1.000 | 1.000 | - | - |
+| p0044 | B1 | Quand mon grand-père était enfant | 150 | 150 | 0.994 | 0.994 | ferme x1 (la ferme (farm): not in the pack; the pack's ferme is the A2 adjective 'firm') | - |
+| p0045 | B1 | Comment mieux dormir ? | 144 | 142 | 1.000 | 1.000 | - | - |
+| p0046 | B1 | Un samedi à la bibliothèque | 150 | 159 | 1.000 | 1.000 | - | - |
+| p0047 | B1 | Moins de voitures en ville | 141 | 145 | 1.000 | 1.000 | - | - |
+| p0048 | B1 | Mon premier voyage seul | 147 | 147 | 1.000 | 1.000 | - | - |
+| p0049 | B1 | Les jeunes et le téléphone | 149 | 152 | 1.000 | 1.000 | - | - |
+| p0050 | B1 | Du bruit la nuit | 143 | 143 | 1.000 | 1.000 | - | - |
+| p0051 | B1 | Changer de métier à quarante ans | 150 | 157 | 1.000 | 1.000 | - | - |
+| p0052 | B1 | Un jardin sur le toit | 148 | 153 | 1.000 | 1.000 | - | - |
+| p0053 | B1 | Le concours de cuisine | 150 | 152 | 1.000 | 1.000 | - | - |
+| p0054 | B1 | Le mariage de ma cousine | 135 | 135 | 0.992 | 0.992 | ferme x1 (la ferme (farmhouse): not in the pack; the pack's ferme is the A2 adjective 'firm') | - |
+| p0055 | B1 | Le musée ouvre le soir | 146 | 146 | 1.000 | 1.000 | - | - |
+| p0056 | B1 | Travailler à la maison | 146 | 150 | 1.000 | 1.000 | - | - |
+| p0057 | B1 | Le vélo volé | 150 | 152 | 1.000 | 1.000 | - | - |
+| p0058 | B1 | Notre avis sur « Chez Marcel » | 138 | 140 | 1.000 | 1.000 | - | - |
+| p0059 | B1 | Apprendre une langue à l'âge adulte | 141 | 144 | 0.993 | 0.993 | scientifique x1 (le scientifique (scientist): the pack has only the adjective scientifique 'scientific') | - |
+| p0060 | B1 | Dans dix ans | 146 | 149 | 1.000 | 1.000 | - | - |
+
+Title words, and question/option words the budget does not count (a numeral-like
+pack word), that are out of the pack or above the passage's level (report only;
+the budget rule above is unchanged):
+
+- p0017: title 'lettre': lettre A2
+- p0024: title 'louer': louer B1
+- p0028: title 'surprise': surprise B1
+- p0036: title 'chute': chute B1; title 'vélo': vélo B1
+- p0037: title 'adultes': adulte B1
 
 <!-- manual section: kept across runs -->
 ## Manual QA (2026-09-24, first build; polish round the same day)

@@ -46,15 +46,15 @@ Levels: {'A1': 600, 'A2': 700, 'B1': 700}. POS: {'noun': 984, 'verb': 502, 'adj'
 ## Sentences
 
 - Final sentences: **3,277**, 437 with audio (`https://tatoeba.org/audio/download/<audio_id>`).
-- Word coverage: 0 = 0, 1 = 2, 2 = 1998.
-- Candidate sentences (terminal punctuation, 3-14 tokens, content lemmas in pack/top-3000, >=1 link): 258,514. Rejected for a content lemma outside pack/top-3000: 92,823.
-- Passé simple: 15,741 candidates contain one; 15,729 were blocked for A1/A2 words; 160 in the final set (all lv B1).
-- Primary word level of each sentence: {'A1': 890, 'B1': 1233, 'A2': 1154}.
+- Word coverage: 0 = 0, 1 = 3, 2 = 1997.
+- Candidate sentences (terminal punctuation, 3-14 tokens, content lemmas in pack/top-3000, >=1 link): 258,361. Rejected for a content lemma outside pack/top-3000: 92,823.
+- Passé simple: 15,610 candidates contain one; 15,598 were blocked for A1/A2 words; 158 in the final set (all lv B1).
+- Primary word level of each sentence: {'A1': 890, 'B1': 1231, 'A2': 1156}.
 - Token-length distribution of the final set:
 
 | tokens | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| sentences | 146 | 679 | 149 | 1098 | 1089 | 75 | 22 | 6 | 7 | 3 | 3 |
+| sentences | 146 | 679 | 149 | 1100 | 1088 | 74 | 22 | 6 | 7 | 3 | 3 |
 
 ## Top 100 by rank (lemma [pos] gloss)
 
@@ -162,6 +162,17 @@ Levels: {'A1': 600, 'A2': 700, 'B1': 700}. POS: {'noun': 984, 'verb': 502, 'adj'
 ```
 
 <!-- manual:begin -->
+## Policy rebuild 2026-09-25 (engine ff88f44; hand-written, preserved)
+- Words: ranks, ids, glosses unchanged; only levels moved. Word ceiling to B1:
+  sang A1, drogue A2. Band-edge shifts: salle A2->A1; grandir, inquiet B1->A2.
+- Sentences 3,277 -> 3,277 (10 removed, 10 added, by text). Drop-everywhere:
+  s2071, s2568 ("Tom s'est pendu..."), s3161. Levels A1 884->886, A2
+  1,146->1,150, B1 1,247->1,241.
+- le suicide (w1843) keeps one written example (`tools/generated_examples.tsv`,
+  exempt from `drop_all_levels`): "Le gouvernement veut réduire le nombre de
+  suicides."
+- passages.json byte-identical; double build byte-identical; ./check.sh green.
+
 ## QA rounds (hand-checked)
 
 | round | words (seed 21) | sentence links (seed 22) | rules added after the round |

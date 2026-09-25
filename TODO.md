@@ -87,3 +87,10 @@ in `README.md` and in `engine/tools/packbuilder/langs/fr.py`.
 ## Verification
 - Browser verification of `index.html` (every tab, fr-FR TTS voice, typing
   with accents at each level, gap items, audio) is still to do.
+
+## Policy rebuild (2026-09-25, engine ff88f44)
+- Word ceiling: sang (A1) and drogue (A2) moved to B1; band edges: salle
+  A2->A1, grandir and inquiet B1->A2. Ranks, ids, glosses unchanged.
+- Drop-everywhere (suicide/self-harm): s2071, s2568, s3161 removed; le suicide
+  (w1843) refilled from `tools/generated_examples.tsv`. Sentences 3,277 ->
+  3,277 (10 removed, 10 added, by text). passages.json unchanged.

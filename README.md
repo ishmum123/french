@@ -37,7 +37,10 @@ level, and the check fails on a match. A shared vulgar/sexual word list
 also scans glosses: a matching sense never leads an A1/A2 gloss
 (`sensitive_gloss_re`), and a word with no clean sense left moves to B1
 (`lower_level_gloss_re`) — tuer, mourir, mort, meurtre, arme, sexe and
-sexuel are placed at B1 this way; the check fails on any match that
+sexuel are placed at B1 this way, and the shared word ceiling (engine
+ff88f44, 2026-09-25) adds sang and drogue. Sentences about suicide or
+self-harm are removed at every level (3 removed); le suicide keeps one neutral
+example written for the pack (`tools/generated_examples.tsv`, "src": "gen"); the check fails on any match that
 remains at A1/A2.
 
 ## Reading passages (Read tab)
@@ -82,6 +85,7 @@ tools/
   build_pack.py        shim: runs `python3 -m packbuilder build --lang fr --repo .` from engine/tools
   gloss_overrides.json hand gloss fixes for high-frequency words
   forced_a1.txt        A1 core list, forced into A1 (the closed sets are in langs/fr.py)
+  generated_examples.tsv  hand-reviewed written examples (example only; exempt from the drop-everywhere filter)
   h_aspire.txt         words with an aspirated h (le héros, la honte), from Wiktionary's
                        "French terms with aspirated h" category plus halte, hors
   requirements.txt     engine/tools/packbuilder/requirements.txt + the French spaCy model
