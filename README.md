@@ -215,6 +215,8 @@ module adds these rules:
 | Sentence translations | Tatoeba `eng_sentences.tsv` + `links.tar.bz2` | CC-BY 2.0 FR | English translations |
 | Sentence audio | Tatoeba `sentences_with_audio.tar.bz2` | CC BY / CC BY-SA / CC0 (per clip; only permissive clips linked, keyed by audio id) | `sentences.json[].audio`; recorders per licence in `pack/attribution.json` |
 
+Licence: code MIT, pack data CC BY-SA 4.0, see LICENSE.
+
 No open CEFR word list for French was usable. The kotoshu "Kelly" `fr.json`
 is wordfreq rebucketed into levels, not Kelly data, so no CEFR cross-check
 is run.
