@@ -184,4 +184,6 @@ Levels: {'A1': 600, 'A2': 700, 'B1': 700}. POS: {'noun': 984, 'verb': 502, 'adj'
 | 5 (re-QA v2 fix round) | round-1 fixes re-verified with the fr-qa/fr-qa2 scans | 83 sentences dropped at every level (rape/abuse); 0 A1/A2 sentences match the sensitive list | death/violence lexicon (mourir, arme, frapper, sang...) kept to B1; all-level drop tier; A1/A2 violent/sexual glosses moved to B1 (tuer, mourir, mort, meurtre, arme, sexe, sexuel); vulgar senses never lead; reflexive senses appended to plain verbs (appeler, trouver, passer, rendre...); y a-t-il = il y a; leur (pronoun) at A1; tail cut at all levels; sentence-initial imperative before a determiner; possessive mis-tagged ADJ; prenominal adjective before a noun (une nouvelle politique); passé simple after a subject (je dus) |
 
 Top 300 by rank: 0 wrong POS. Determinism: builds with PYTHONHASHSEED 1 and 777 are byte-identical (pack/*.json, REPORT.md).
+
+2026-09-25 engine bump: 072795d (voice-init fix, no-voice notice timing, word ceiling). French was already rebuilt with the shared word-level ceiling; words/sentences/passages are byte-identical to the previous build. No rank, id, level or gloss changed.
 <!-- manual:end -->
