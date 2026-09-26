@@ -253,3 +253,7 @@ classification.
 - Days and months are shown without an article, as in the Italian pack.
 - Sentences: 4-14 tokens (B1 at least 5); an A1 word with fewer than two
   such sentences may take a 3-token one (shared builder rule).
+- **Typing** stays accent-lenient (`ou` = `où`), but a fold-only match is
+  now rejected when it spells another pack word instead: the pairs
+  la/là, sur/sûr, où/ou, côté/côte, marché/marche, élève/élevé and âge/âgé
+  are each distinguished, in both directions.
